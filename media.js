@@ -643,4 +643,24 @@ window.MEDIA = {
     "date": ""
   }
 ]
+  ,
+  piedecuestaPhotos: [
+    {"name":"IMG_20260906_165323_851.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/IMG_20260906_165323_851.jpg","date":""},
+    {"name":"IMG_20260906_165358_422.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/IMG_20260906_165358_422.jpg","date":""},
+    {"name":"IMG_20260906_171550_640.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/IMG_20260906_171550_640.jpg","date":""},
+    {"name":"Snapchat-1395249341.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/Snapchat-1395249341.jpg","date":""},
+    {"name":"Snapchat-1564672845.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/Snapchat-1564672845.jpg","date":""},
+    {"name":"Snapchat-1635429983.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/Snapchat-1635429983.jpg","date":""},
+    {"name":"Snapchat-1946098372.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/Snapchat-1946098372.jpg","date":""},
+    {"name":"Snapchat-1985779896.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/Snapchat-1985779896.jpg","date":""},
+    {"name":"Snapchat-2127895018.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/Snapchat-2127895018.jpg","date":""},
+    {"name":"Snapchat-842906479.jpg","url":"https://res.cloudinary.com/sicykhot/image/upload/f_auto,q_auto/Snapchat-842906479.jpg","date":""}
+  ],
+  piedecuestaVideo: {
+    "name":"lv_0_20260907050305.mp4",
+    "url":"https://res.cloudinary.com/sicykhot/video/upload/f_auto,q_auto/lv_0_20260907050305.mp4",
+    "poster":"https://res.cloudinary.com/sicykhot/video/upload/so_0,f_jpg,q_auto/lv_0_20260907050305.mp4"
+  }
+
 };
+```
