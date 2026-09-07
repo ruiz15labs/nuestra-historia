@@ -114,6 +114,43 @@
   <div id="videoCounter" class="carousel-counter"></div>
 </section>
 
+
+<section class="section piedecuesta-section" id="piedecuesta">
+  <div class="gallery-heading">
+    <div>
+      <small>08 · PIEDECUESTA</small>
+      <h2>Ese día<br><em>te veías hermosa.</em></h2>
+    </div>
+    <span class="media-count">10 FOTOS · 1 VIDEO</span>
+  </div>
+
+  <p class="section-lead">Hay días que no necesitan una gran historia para quedarse contigo. A veces basta con mirar una fotografía y recordar cómo se sentía estar ahí. Estas son algunas de las imágenes de aquel día que quiero conservar.</p>
+
+  <div class="media-carousel media-carousel-light piedecuesta-carousel">
+    <button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
+    <div class="carousel-viewport">
+      <div id="piedecuestaTrack" class="carousel-track"></div>
+    </div>
+    <button class="carousel-arrow next" type="button" aria-label="Siguiente foto">›</button>
+  </div>
+  <div id="piedecuestaCounter" class="carousel-counter"></div>
+
+  <div class="piedecuesta-video-wrap">
+    <div class="piedecuesta-video-frame">
+      <video id="piedecuestaVideo" controls playsinline preload="metadata"
+        poster="https://res.cloudinary.com/sicykhot/video/upload/so_0,f_jpg,q_auto/lv_0_20260907050305.mp4"
+        aria-label="Recuerdo de Piedecuesta">
+        <source src="https://res.cloudinary.com/sicykhot/video/upload/f_auto,q_auto/lv_0_20260907050305.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
+      <div class="piedecuesta-video-caption">
+        <span>UN MOMENTO QUE QUIERO CONSERVAR</span>
+        <strong>Porque hay recuerdos que se sienten distintos cuando vuelves a mirarlos.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section gallery-section" id="recuerdos">
   <div class="gallery-heading"><div><small>08 · NUESTROS RECUERDOS</small><h2>Lo que quedó<br>en imágenes.</h2></div><span id="photoCount" class="media-count"></span></div>
   <p>Hay momentos que el tiempo se lleva, pero una fotografía consigue devolverlos por un instante. Aquí quedaron algunos de los pedacitos de nosotros que todavía quiero conservar.</p>
@@ -184,7 +221,74 @@
 
 <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lightbox-close" type="button" aria-label="Cerrar">×</button><button class="lightbox-prev" type="button" aria-label="Anterior">‹</button><div class="lightbox-content"><img id="lightboxImage" alt=""><video id="lightboxVideo" controls playsinline></video></div><button class="lightbox-next" type="button" aria-label="Siguiente">›</button></div>
 
+
+<style>
+.piedecuesta-section .piedecuesta-carousel { margin-top: 1.8rem; }
+.piedecuesta-section .piedecuesta-video-wrap { margin-top: 3rem; }
+.piedecuesta-section .piedecuesta-video-frame { border-radius: 18px; overflow: hidden; background: #11100d; }
+.piedecuesta-section .piedecuesta-video-frame video { display:block; width:100%; max-height:75vh; object-fit:contain; }
+.piedecuesta-section .piedecuesta-video-caption { padding:1.1rem 1.15rem 1.25rem; display:flex; flex-direction:column; gap:.45rem; }
+.piedecuesta-section .piedecuesta-video-caption span { font-size:.68rem; letter-spacing:.16em; opacity:.65; }
+.piedecuesta-section .piedecuesta-video-caption strong { font-family:"Cormorant Garamond",serif; font-size:1.35rem; font-weight:500; line-height:1.15; }
+#piedecuestaTrack .media-slide { min-width:100%; margin:0; }
+#piedecuestaTrack .media-slide img { display:block; width:100%; max-height:72vh; object-fit:contain; border-radius:18px; }
+#piedecuestaTrack { display:flex; transition:transform .35s ease; will-change:transform; }
+</style>
+<script>
+(function () {
+  function initPiedecuesta() {
+    if (!window.MEDIA || !window.MEDIA.piedecuestaPhotos) return;
+    const track = document.getElementById("piedecuestaTrack");
+    const counter = document.getElementById("piedecuestaCounter");
+    const carousel = document.querySelector(".piedecuesta-carousel");
+    if (!track || !carousel) return;
+
+    const photos = window.MEDIA.piedecuestaPhotos;
+    photos.forEach((photo, i) => {
+      const figure = document.createElement("figure");
+      figure.className = "media-slide";
+      figure.innerHTML = '<img src="' + photo.url + '" alt="Recuerdo de Piedecuesta ' + (i + 1) + '" loading="lazy">';
+      track.appendChild(figure);
+    });
+
+    let index = 0;
+    function update() {
+      track.style.transform = "translateX(-" + (index * 100) + "%)";
+      if (counter) counter.textContent = String(index + 1).padStart(2, "0") + " / " + photos.length;
+    }
+
+    carousel.querySelector(".prev").addEventListener("click", function () {
+      index = (index - 1 + photos.length) % photos.length;
+      update();
+    });
+    carousel.querySelector(".next").addEventListener("click", function () {
+      index = (index + 1) % photos.length;
+      update();
+    });
+
+    let startX = 0;
+    track.addEventListener("touchstart", function (e) {
+      startX = e.touches[0].clientX;
+    }, {passive:true});
+    track.addEventListener("touchend", function (e) {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) < 45) return;
+      index = dx < 0 ? (index + 1) % photos.length : (index - 1 + photos.length) % photos.length;
+      update();
+    }, {passive:true});
+
+    update();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPiedecuesta);
+  } else {
+    initPiedecuesta();
+  }
+})();
+</script>
+
 <script src="media.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
+```
