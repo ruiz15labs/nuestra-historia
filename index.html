@@ -114,7 +114,6 @@
   <div id="videoCounter" class="carousel-counter"></div>
 </section>
 
-
 <section class="section piedecuesta-section" id="piedecuesta">
   <div class="gallery-heading">
     <div>
@@ -141,7 +140,6 @@
         poster="https://res.cloudinary.com/sicykhot/video/upload/so_0,f_jpg,q_auto/lv_0_20260907050305.mp4"
         aria-label="Recuerdo de Piedecuesta">
         <source src="https://res.cloudinary.com/sicykhot/video/upload/f_auto,q_auto/lv_0_20260907050305.mp4" type="video/mp4">
-        Tu navegador no puede reproducir este video.
       </video>
       <div class="piedecuesta-video-caption">
         <span>UN MOMENTO QUE QUIERO CONSERVAR</span>
@@ -152,14 +150,14 @@
 </section>
 
 <section class="section gallery-section" id="recuerdos">
-  <div class="gallery-heading"><div><small>08 · NUESTROS RECUERDOS</small><h2>Lo que quedó<br>en imágenes.</h2></div><span id="photoCount" class="media-count"></span></div>
+  <div class="gallery-heading"><div><small>09 · NUESTROS RECUERDOS</small><h2>Lo que quedó<br>en imágenes.</h2></div><span id="photoCount" class="media-count"></span></div>
   <p>Hay momentos que el tiempo se lleva, pero una fotografía consigue devolverlos por un instante. Aquí quedaron algunos de los pedacitos de nosotros que todavía quiero conservar.</p>
   <div class="media-carousel media-carousel-light"><button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button><div class="carousel-viewport"><div id="photoTrack" class="carousel-track"></div></div><button class="carousel-arrow next" type="button" aria-label="Siguiente foto">›</button></div>
   <div id="photoCounter" class="carousel-counter"></div>
 </section>
 
 <section class="section reasons-section" id="razones">
-  <small>09 · ALGUNAS RAZONES</small><h2>Las razones que<br><em>me salen del corazón.</em></h2>
+  <small>10 · ALGUNAS RAZONES</small><h2>Las razones que<br><em>me salen del corazón.</em></h2>
   <p class="section-lead">Pude haber escrito una lista de cien razones para quedarme contigo, pero decidí escribir solamente las que más me salen del corazón.</p>
   <div class="reasons-carousel"><button class="reason-arrow prev" type="button" aria-label="Razón anterior">‹</button><div class="reason-viewport"><div id="reasonsList" class="reasons-list"></div></div><button class="reason-arrow next" type="button" aria-label="Siguiente razón">›</button></div><div id="reasonCounter" class="reason-counter"></div>
 </section>
@@ -221,7 +219,6 @@
 
 <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lightbox-close" type="button" aria-label="Cerrar">×</button><button class="lightbox-prev" type="button" aria-label="Anterior">‹</button><div class="lightbox-content"><img id="lightboxImage" alt=""><video id="lightboxVideo" controls playsinline></video></div><button class="lightbox-next" type="button" aria-label="Siguiente">›</button></div>
 
-
 <style>
 .piedecuesta-section .piedecuesta-carousel { margin-top: 1.8rem; }
 .piedecuesta-section .piedecuesta-video-wrap { margin-top: 3rem; }
@@ -237,13 +234,13 @@
 <script>
 (function () {
   function initPiedecuesta() {
-    if (!window.MEDIA || !window.MEDIA.piedecuestaPhotos) return;
+    const photos = window.MEDIA && window.MEDIA.piedecuestaPhotos;
+    if (!photos) return;
     const track = document.getElementById("piedecuestaTrack");
     const counter = document.getElementById("piedecuestaCounter");
     const carousel = document.querySelector(".piedecuesta-carousel");
     if (!track || !carousel) return;
 
-    const photos = window.MEDIA.piedecuestaPhotos;
     photos.forEach((photo, i) => {
       const figure = document.createElement("figure");
       figure.className = "media-slide";
@@ -252,38 +249,24 @@
     });
 
     let index = 0;
-    function update() {
+    const update = () => {
       track.style.transform = "translateX(-" + (index * 100) + "%)";
       if (counter) counter.textContent = String(index + 1).padStart(2, "0") + " / " + photos.length;
-    }
-
-    carousel.querySelector(".prev").addEventListener("click", function () {
-      index = (index - 1 + photos.length) % photos.length;
-      update();
-    });
-    carousel.querySelector(".next").addEventListener("click", function () {
-      index = (index + 1) % photos.length;
-      update();
-    });
+    };
+    carousel.querySelector(".prev").addEventListener("click", () => { index = (index - 1 + photos.length) % photos.length; update(); });
+    carousel.querySelector(".next").addEventListener("click", () => { index = (index + 1) % photos.length; update(); });
 
     let startX = 0;
-    track.addEventListener("touchstart", function (e) {
-      startX = e.touches[0].clientX;
-    }, {passive:true});
-    track.addEventListener("touchend", function (e) {
+    track.addEventListener("touchstart", e => { startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener("touchend", e => {
       const dx = e.changedTouches[0].clientX - startX;
       if (Math.abs(dx) < 45) return;
       index = dx < 0 ? (index + 1) % photos.length : (index - 1 + photos.length) % photos.length;
       update();
     }, {passive:true});
-
     update();
   }
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initPiedecuesta);
-  } else {
-    initPiedecuesta();
-  }
+  document.addEventListener("DOMContentLoaded", initPiedecuesta);
 })();
 </script>
 
@@ -291,4 +274,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-```
