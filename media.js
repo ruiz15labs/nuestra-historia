@@ -661,6 +661,4 @@ window.MEDIA = {
     "url":"https://res.cloudinary.com/sicykhot/video/upload/f_auto,q_auto/lv_0_20260907050305.mp4",
     "poster":"https://res.cloudinary.com/sicykhot/video/upload/so_0,f_jpg,q_auto/lv_0_20260907050305.mp4"
   }
-
 };
-```
