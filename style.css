@@ -255,3 +255,175 @@ body.no-scroll{overflow:hidden}
  .duration-clock i{font-size:20px}
  .final-line{font-size:22px}
 }
+
+/* V17 — REDISEÑO PREMIUM MOBILE-FIRST: editorial, cinematográfico y romántico */
+:root{
+  --ink:#0b0a09;
+  --ink-2:#12100e;
+  --ink-3:#191613;
+  --paper:#eee7de;
+  --paper-2:#e6ddd3;
+  --text:#f2ebe3;
+  --text-soft:#c9beb4;
+  --dark-text:#302925;
+  --gold:#c8a56a;
+  --gold-soft:#d7bd8e;
+  --line-gold:rgba(200,165,106,.28);
+  --line-light:rgba(48,41,37,.14);
+  --rose:#d7aaa5;
+}
+
+html{background:var(--ink);scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:"DM Sans",sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;background:radial-gradient(circle at 50% 20%,transparent 35%,rgba(0,0,0,.16) 100%);opacity:.65}
+
+/* HERO */
+.hero{min-height:100svh;height:auto;padding:0;display:block;background:#080706;isolation:isolate}
+.photo{background-position:center center;transform:scale(1.055);animation:heroBreath 14s ease-in-out infinite alternate;filter:saturate(.86) contrast(1.06)}
+.veil{background:linear-gradient(180deg,rgba(5,5,4,.72) 0%,rgba(5,5,4,.05) 30%,rgba(5,5,4,.12) 52%,rgba(5,5,4,.92) 100%)}
+.hero:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.26),transparent 50%,rgba(0,0,0,.18))}
+.heroText{z-index:3;min-height:100svh;padding:25svh 27px 120px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;text-align:left}
+.heroText small{font-size:9px;letter-spacing:.42em;color:var(--gold-soft);margin-bottom:12px}
+.hero h1{font:500 clamp(64px,19vw,96px)/.78 "Cormorant Garamond",serif;letter-spacing:-.025em;margin:0;text-transform:uppercase;color:#f5eee7;text-shadow:0 5px 30px rgba(0,0,0,.25)}
+.names{font:38px/1.1 "Parisienne",cursive;color:#ead7bb;margin-top:22px}
+.heart{font-size:25px;line-height:1;color:var(--gold-soft);margin:17px 0 4px}
+.heroText p{max-width:295px;margin:0;font:400 18px/1.35 "Cormorant Garamond",serif;letter-spacing:.01em;text-transform:none;color:#eee5dc}
+.side{z-index:3;top:25px;font-size:7px;letter-spacing:.32em;color:rgba(245,238,231,.78)}
+.left{left:25px}.right{right:25px}
+.scroll{z-index:4;left:27px;bottom:26px;text-align:left;font-size:8px;letter-spacing:.24em;color:#eee5dc;display:flex;align-items:center;gap:12px}
+.scroll b{width:34px;height:34px;margin:0;border-color:var(--gold);color:var(--gold);font-size:17px;flex:0 0 auto}
+
+/* SECCIONES */
+.section{max-width:100%;padding:92px 25px;margin:0;background:var(--ink);color:var(--text)}
+.section>small,.closing small{font-size:8px;letter-spacing:.38em;color:var(--gold-soft)}
+.section h2,.closing h2{font:500 clamp(47px,13.5vw,72px)/.9 "Cormorant Garamond",serif;letter-spacing:-.02em;margin:17px 0 27px;color:inherit}
+.section h2 em{font-style:italic;font-weight:400;color:var(--gold-soft)}
+.section p,.item p,.closing p{font-size:15px;line-height:1.82;color:var(--text-soft)}
+.section-lead{font-size:17px!important;line-height:1.72!important;max-width:620px;opacity:1;color:var(--text-soft)!important}
+.item{padding:30px 0;border-bottom:1px solid var(--line-gold)}
+.item em{font-size:8px;letter-spacing:.32em;color:var(--gold-soft)}
+.item h3{font:500 31px/1.02 "Cormorant Garamond",serif;margin:10px 0 13px;color:var(--text)}
+.story-scene{padding:50px 0 10px}
+.scene-label,.message-meta{font-size:8px;letter-spacing:.28em;color:var(--gold-soft)}
+.scene-line{background:var(--gold);opacity:.8;width:38px;margin:17px 0}
+.story-scene h3{font-size:38px;line-height:.98;margin:10px 0 15px}
+.scene-highlight{border-color:var(--line-gold)}
+.scene-highlight h3{font-size:42px}
+
+/* FOTO EDITORIAL */
+.story-photo{margin:38px 0 42px}
+.story-photo img{display:block;width:100%;border-radius:2px;aspect-ratio:4/5;object-fit:cover;box-shadow:0 25px 65px rgba(0,0,0,.34)}
+.story-photo.wide img{aspect-ratio:4/3}
+.story-photo span{display:block;margin-top:10px;font:italic 15px/1.35 "Cormorant Garamond",serif;color:#a99b90;text-align:right}
+.message-card{margin:48px 0 30px;padding:24px 0 28px;border-color:var(--line-gold)}
+.message-bubble{background:#211c17;color:#eee5dc;border:1px solid var(--line-gold);border-radius:2px;font:500 17px/1.2 "DM Sans",sans-serif;box-shadow:0 15px 35px rgba(0,0,0,.2)}
+.eyes-quote{font:italic 31px/1.28 "Cormorant Garamond",serif;color:#ead8c0;border-left-color:var(--gold);margin:48px 0 58px!important}
+.date-marker{border-top-color:var(--line-gold)}
+.date-marker span{color:var(--gold-soft)}
+.date-marker i{color:#a99b90}
+
+/* SECCIONES CLARAS — PAPEL EDITORIAL */
+.light,.nina-section,.birthday-section,.gallery-section{
+  background:var(--paper);color:var(--dark-text);max-width:100%;
+  padding-left:25px;padding-right:25px;
+}
+.light>small,.birthday-section>small{color:#9a7850}
+.light h2,.nina-section h2,.birthday-section h2{color:var(--dark-text)}
+.light h2 em,.nina-section h2 em{color:#9b7754}
+.light p,.nina-section p,.birthday-section p,.gallery-section>p{color:#655a52}
+.light .section-lead,.nina-section .section-lead,.birthday-section .section-lead{color:#655a52!important}
+.light .item{border-color:var(--line-light)}
+.light .item em{color:#9a7850}
+.light .item h3{color:var(--dark-text)}
+.light .story-photo img,.birthday-card img{box-shadow:0 22px 50px rgba(38,30,25,.16)}
+.story-photo span{color:#786b62}
+.nina-copy{font:400 21px/1.72 "Cormorant Garamond",serif;color:#3d3530;max-width:650px;margin:34px auto 0}
+.nina-copy p{color:#3d3530;margin:0 0 20px}
+.nina-copy p:nth-child(2){font-size:33px;color:#8d6d55}
+.birthday-copy{font:400 20px/1.72 "Cormorant Garamond",serif;color:#403732}
+.birthday-copy p{color:#403732}
+.birthday-card figcaption{color:#786b62}
+
+/* TARJETAS COTIDIANAS */
+.grid{gap:7px;margin:32px 0}
+.memory{min-height:170px;padding:19px;background:linear-gradient(145deg,#27211c,#14110e);border:1px solid rgba(200,165,106,.16);font:500 24px/1.02 "Cormorant Garamond",serif;color:#eee5dc}
+.big{min-height:245px}
+.note{font:italic 20px/1.55 "Cormorant Garamond",serif!important;color:#655a52!important}
+
+/* ADMIRACIÓN / FÚTBOL / OSCURAS */
+.admiration-section,.apology-section,.reasons-section,.songs-section,.duration-section,.dark2,.feature-section{background:var(--ink-2);color:var(--text);max-width:100%;padding-left:25px;padding-right:25px}
+.admiration-section h2,.apology-section h2,.reasons-section h2,.songs-section h2,.duration-section h2{color:var(--text)}
+.admiration-section .section-lead,.apology-section p{color:var(--text-soft)}
+.admiration-copy{font:400 22px/1.7 "Cormorant Garamond",serif;color:#e5ddd5;max-width:650px;margin-top:34px}
+.admiration-copy p{color:#e5ddd5}
+.admiration-copy .admiration-quote{color:#ead8c0}
+.feature-quote{border-left-color:var(--gold);color:#ead8c0!important}
+.football-video-frame,.biwi-video-frame{border:1px solid var(--line-gold);box-shadow:0 25px 65px rgba(0,0,0,.38);border-radius:3px}
+.football-caption strong,.biwi-video-caption strong{color:#eee5dc}
+.football-caption span,.biwi-video-caption span{color:var(--gold-soft)}
+.biwi-video-caption{background:#17130f}
+
+/* GALERÍA */
+.gallery-section{padding-left:15px;padding-right:15px}
+.gallery-heading{padding:0 10px}
+.gallery-section>p{padding:0 10px}
+.gallery{columns:2 145px;column-gap:6px;margin-top:27px}
+.gallery-item{margin-bottom:6px;border-radius:1px;background:#d4cbc2}
+.gallery-item img{filter:saturate(.9);transition:transform .6s ease,filter .6s ease}
+.gallery-date{left:6px;bottom:6px;background:rgba(0,0,0,.45);font-size:7px}
+
+/* CARRUSELES */
+.media-carousel,.reasons-carousel,.songs-carousel{grid-template-columns:28px minmax(0,1fr) 28px;gap:5px}
+.carousel-viewport,.reason-viewport,.song-viewport{border-radius:2px}
+.carousel-slide img,.carousel-slide video{height:64svh;min-height:340px;border-radius:2px}
+.carousel-arrow,.reason-arrow,.song-arrow{width:28px;height:28px;font-size:18px;background:#17130f;border:1px solid var(--line-gold);color:#e9ddcf}
+.carousel-counter,.reason-counter,.song-counter{font-size:8px;letter-spacing:.24em;color:#9e9187}
+
+/* RAZONES */
+.reason-viewport{border-color:var(--line-gold)}
+.reason-card{min-height:390px;padding:35px 25px 38px;background:linear-gradient(145deg,#211b16,#100e0c)}
+.reason-big-number{font-size:58px;color:var(--gold-soft)}
+.reason-word{color:#a99b90}
+.reason-card p{font-size:27px;color:#f0e7de}
+
+/* CANCIONES */
+.songs-list{gap:0}
+.song-card{border:1px solid var(--line-gold);border-radius:2px;background:#15110e;padding:19px;min-height:330px}
+.song-number{color:var(--gold-soft)}
+.song-info h3{color:#eee5dc;font-size:31px}
+.song-info p,.song-info span{color:#a99b90}
+.song-card iframe{border-radius:2px}
+
+/* CONTADOR */
+.duration-section{text-align:center;padding-top:86px;padding-bottom:90px}
+.duration-section>div>small{color:var(--gold-soft)}
+.duration-section h2 em{color:var(--gold-soft)}
+.duration-section>div>p{color:var(--text-soft)}
+.duration-counter{border:1px solid var(--line-gold);border-radius:3px;background:linear-gradient(145deg,#15120f,#0d0b09);box-shadow:0 25px 70px rgba(0,0,0,.28)}
+.duration-main{color:#eee5dc}
+.duration-clock b{color:#e7dacd}
+.duration-clock small{color:#91857b}
+.duration-clock i{color:var(--gold)}
+.final-line{border-color:var(--line-gold);color:#dfcdb8}
+
+/* CARTA Y FINAL */
+.letter{font:400 21px/1.78 "Cormorant Garamond",serif;color:#e5ddd5}
+.letter p{color:#e5ddd5}
+.letter .signature{color:#dfc6a0}
+.closing{background:var(--ink);max-width:100%;padding:105px 25px 125px}
+.closing>div:first-child{color:var(--gold);font-size:42px}
+.closing p{color:var(--text-soft);max-width:610px}
+.closing .signature{color:#dfc6a0}
+
+/* LIGHTBOX */
+.lightbox{background:rgba(7,6,5,.97);backdrop-filter:blur(12px);padding:35px 38px}
+.lightbox button{background:#14110f;border-color:var(--line-gold);color:#eadfD2;width:40px;height:40px;font-size:25px}
+
+/* MICRO-INTERACCIONES */
+a,.carousel-arrow,.reason-arrow,.song-arrow,.gallery-item,.scroll{ -webkit-tap-highlight-color:transparent }
+@keyframes heroBreath{from{transform:scale(1.055)}to{transform:scale(1.085)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.photo{animation:none}.carousel-track,.reasons-list,.songs-list{transition:none}}
+@media (min-width:700px){
+  .section,.light,.gallery-section,.admiration-section,.apology-section,.reasons-section,.songs-section,.duration-section,.closing{padding-left:max(25px,calc((100% - 760px)/2));padding-right:max(25px,calc((100% - 760px)/2))}
+  .heroText{padding-left:max(27px,calc((100% - 760px)/2));padding-right:max(27px,calc((100% - 760px)/2))}
+}
